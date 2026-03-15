@@ -1,9 +1,15 @@
 import profile from "./assets/profile.jpg.jfif";
+
+import embeddedImg from "./assets/projects/Embedded.jpg";
+import devopsImg from "./assets/projects/Devops.jpg";
+import webImg from "./assets/projects/Web.png";
+import mlImg from "./assets/projects/MachineLearning.png";
 export default function InternshipPortfolioSite() {
   const projects = [
   {
     title: "Embedded LED Controller",
     subtitle: "C / Embedded Systems / Microcontroller Programming",
+    image: embeddedImg,
     description:
       "A microcontroller program written in C that controls LEDs based on button input. The project focuses on hardware-level programming, switch logic, and working directly with registers.",
     tech: ["C", "AVR", "PlatformIO"],
@@ -12,6 +18,7 @@ export default function InternshipPortfolioSite() {
   {
     title: "Containerized Spring Boot Application",
     subtitle: "Docker / Kubernetes / DevOps",
+    image: devopsImg,
     description:
       "A containerized Spring Boot application deployed with Docker and Kubernetes. The work demonstrates image building, container execution, and deployment in a local cluster environment.",
     tech: ["Docker", "Kubernetes", "Java", "Spring Boot"],
@@ -21,6 +28,7 @@ export default function InternshipPortfolioSite() {
   {
     title: "Web Development",
     subtitle: "HTML / CSS / JavaScript",
+    image: webImg,
     description:
       "A collection of web development exercises focused on JavaScript fundamentals, DOM manipulation, and frontend development concepts.",
     tech: ["HTML", "CSS", "JavaScript"],
@@ -29,6 +37,7 @@ export default function InternshipPortfolioSite() {
   {
     title: "Regression Models Analysis",
     subtitle: "Python / Machine Learning",
+    image: mlImg,
     description:
       "A machine learning exercise exploring Ridge, Lasso, and Elastic Net regression models. The project compares model behavior using standardized data and practical notebook-based analysis.",
     tech: ["Python", "Scikit-learn", "Jupyter"],
@@ -147,12 +156,13 @@ export default function InternshipPortfolioSite() {
             <p className="text-sm uppercase tracking-[0.2em] text-white/50">Projects</p>
             <h3 className="mt-3 text-3xl font-semibold">Selected work</h3>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
               <article
                 key={project.title}
                 className="rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:bg-white/[0.07]"
               >
+                <img src={project.image} alt={project.title} className="w-full h-40 object-cover rounded-xl mb-4" />
                 <p className="text-sm text-white/50">{project.subtitle}</p>
                 <h4 className="mt-3 text-xl font-semibold">{project.title}</h4>
                 <p className="mt-4 leading-7 text-white/70">{project.description}</p>
