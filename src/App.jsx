@@ -1,4 +1,4 @@
-import profile from "./assets/profile.jpg";
+import profile from "./assets/profile.jpg.jfif";
 export default function InternshipPortfolioSite() {
   const projects = [
     {
