@@ -160,7 +160,7 @@ export default function InternshipPortfolioSite() {
             {projects.map((project) => (
               <article
                 key={project.title}
-                className="rounded-3xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/40"
+                className="rounded-3xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:bg-white/[0.07] hover:border-white/30"
               >
                 <div className="overflow-hidden rounded-xl mb-4">
                   <img
