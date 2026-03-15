@@ -1,3 +1,4 @@
+import profile from "./assets/profile.jpg";
 export default function InternshipPortfolioSite() {
   const projects = [
     {
@@ -82,6 +83,12 @@ export default function InternshipPortfolioSite() {
 
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/30">
             <div className="rounded-2xl border border-white/10 bg-neutral-900 p-6">
+            <img
+            src={profile}
+            alt="Ildo Mota"
+            ClassName="w-32 h-32 rounded-full mx-auto mb-6 object-cover border border-white/20"
+            />
+            
               <p className="text-sm uppercase tracking-[0.2em] text-white/50">Quick Profile</p>
               <div className="mt-6 space-y-5 text-sm">
                 <div>
