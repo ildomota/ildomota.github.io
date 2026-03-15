@@ -89,7 +89,7 @@ export default function InternshipPortfolioSite() {
             ClassName="w-32 h-32 rounded-full mx-auto mb-6 object-cover border border-white/20"
             />
             
-              <p className="text-sm uppercase tracking-[0.2em] text-white/50">Quick Profile</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-white/50">About me</p>
               <div className="mt-6 space-y-5 text-sm">
                 <div>
                   <p className="text-white/45">Focus</p>
