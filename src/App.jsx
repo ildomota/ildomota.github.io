@@ -59,7 +59,8 @@ export default function InternshipPortfolioSite() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-blue-950 to-black text-white">
+    <div className="relative min-h-screen bg-gradient-to-b from-slate-950 via-blue-950 to-black text-white overflow-hidden">
+      <div className="absolute right-0 top-40 w-[500px] h-[500px] bg-blue-500/20 blur-[160px] rounded-full pointer-events-none"></div>
       <header className="border-b border-white/10 bg-neutral-950/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
           <div>
