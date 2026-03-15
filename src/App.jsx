@@ -171,8 +171,14 @@ export default function InternshipPortfolioSite() {
               You can add your email, LinkedIn, GitHub, and CV link here so companies can quickly reach you and view your work.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#" className="rounded-2xl bg-white px-6 py-3 font-medium text-black">GitHub</a>
-              <a href="#" className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white">LinkedIn</a>
+              <a href="https://github.com/ildomota"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl bg-white px-6 py-3 font-medium text-black">GitHub</a>
+              <a href="https://www.linkedin.com/in/ildo-mota-32a39b21b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white">LinkedIn</a>
               <a href="#" className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white">Download CV</a>
             </div>
           </div>
