@@ -110,7 +110,7 @@ export default function InternshipPortfolioSite() {
             <img
             src={profile}
             alt="Ildo Mota"
-            ClassName="w-32 h-32 rounded-full mx-auto mb-6 object-cover border border-white/20"
+            className="w-80 h-80 rounded-full mx-auto mb-6 object-cover border border-white/20 shadow-lg shadow-black/40 hover:scale-115 transition duration-300"
             />
             
               <p className="text-sm uppercase tracking-[0.2em] text-white/50">Ildo Mota</p>
