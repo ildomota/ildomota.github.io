@@ -59,7 +59,7 @@ export default function InternshipPortfolioSite() {
   ];
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-blue-950 to-black text-white">
       <header className="border-b border-white/10 bg-neutral-950/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
           <div>
@@ -114,6 +114,12 @@ export default function InternshipPortfolioSite() {
             />
             
               <p className="text-sm uppercase tracking-[0.2em] text-white/50">Ildo Mota</p>
+              <p className="mt-2 text-lg text-white/80">
+              Software Engineering Student
+              </p>
+              <p className="mt-3 text-sm text-white/70">
+              C • Python • Java • C# • Docker • Kubernetes • JavaScript • Git
+              </p>
               <div className="mt-6 space-y-5 text-sm">
                 <div>
                   <p className="text-white/45">Focus</p>
