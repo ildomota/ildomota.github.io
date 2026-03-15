@@ -1,25 +1,31 @@
 import profile from "./assets/profile.jpg.jfif";
 export default function InternshipPortfolioSite() {
   const projects = [
-    {
-      title: "Embedded Systems Exercises",
-      subtitle: "C, PlatformIO, unit testing",
-      description:
-        "Course exercises focused on low-level programming, modular C code, and hardware-oriented problem solving.",
-    },
-    {
-      title: "DevOps / Docker / Kubernetes",
-      subtitle: "Containers, deployments, workflows",
-      description:
-        "Hands-on work with containerized applications, local Kubernetes environments, and practical deployment steps.",
-    },
-    {
-      title: "Data & Machine Learning Exercises",
-      subtitle: "Python, notebooks, model experiments",
-      description:
-        "Exploration of data preprocessing, regression models, and practical notebook-based analysis for coursework.",
-    },
-  ];
+  {
+    title: "Embedded LED Controller",
+    subtitle: "C / Embedded Systems / Microcontroller Programming",
+    description:
+      "A microcontroller program written in C that controls LEDs based on button input. The project focuses on hardware-level programming, switch logic, and working directly with registers.",
+    tech: ["C", "AVR", "PlatformIO"],
+    github: "https://github.com/ildomota/Exercises",
+  },
+  {
+    title: "Containerized Spring Boot Application",
+    subtitle: "Docker / Kubernetes / DevOps",
+    description:
+      "A containerized Spring Boot application deployed with Docker and Kubernetes. The work demonstrates image building, container execution, and deployment in a local cluster environment.",
+    tech: ["Docker", "Kubernetes", "Java", "Spring Boot"],
+    github: "https://github.com/ildomota/Exercises",
+  },
+  {
+    title: "Regression Models Analysis",
+    subtitle: "Python / Machine Learning",
+    description:
+      "A machine learning exercise exploring Ridge, Lasso, and Elastic Net regression models. The project compares model behavior using standardized data and practical notebook-based analysis.",
+    tech: ["Python", "Scikit-learn", "Jupyter"],
+    github: "https://github.com/ildomota/Exercises",
+  },
+];
 
   const skills = [
     "C",
@@ -141,6 +147,27 @@ export default function InternshipPortfolioSite() {
                 <p className="text-sm text-white/50">{project.subtitle}</p>
                 <h4 className="mt-3 text-xl font-semibold">{project.title}</h4>
                 <p className="mt-4 leading-7 text-white/70">{project.description}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                 {project.tech.map((item) => (
+                 <span
+                   key={item}
+                   className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-white/80"
+                  >
+                    {item}
+                   </span>
+                 ))}
+               </div>
+               
+               <div className="mt-6">
+                <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/5"
+                >
+                  View in GitHub
+                </a>
+               </div>
               </article>
             ))}
           </div>
