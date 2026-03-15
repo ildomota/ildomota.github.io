@@ -7,7 +7,7 @@ export default function InternshipPortfolioSite() {
     description:
       "A microcontroller program written in C that controls LEDs based on button input. The project focuses on hardware-level programming, switch logic, and working directly with registers.",
     tech: ["C", "AVR", "PlatformIO"],
-    github: "https://github.com/ildomota/Exercises",
+    github: "https://github.com/ildomota/esw-exercises",
   },
   {
     title: "Containerized Spring Boot Application",
@@ -15,7 +15,16 @@ export default function InternshipPortfolioSite() {
     description:
       "A containerized Spring Boot application deployed with Docker and Kubernetes. The work demonstrates image building, container execution, and deployment in a local cluster environment.",
     tech: ["Docker", "Kubernetes", "Java", "Spring Boot"],
-    github: "https://github.com/ildomota/Exercises",
+    github: "https://github.com/ildomota/devops-exercises",
+  },
+
+  {
+    title: "Web Development",
+    subtitle: "HTML / CSS / JavaScript",
+    description:
+      "A collection of web development exercises focused on JavaScript fundamentals, DOM manipulation, and frontend development concepts.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/ildomota/web2-exercises",
   },
   {
     title: "Regression Models Analysis",
