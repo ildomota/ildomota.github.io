@@ -238,7 +238,9 @@ export default function InternshipPortfolioSite() {
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white">LinkedIn</a>
-              <a href="#" className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white">Download CV</a>
+              <a href="/Ildo_CV.pdf"
+              download
+               className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white">Download CV</a>
             </div>
           </div>
         </section>
