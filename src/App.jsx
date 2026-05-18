@@ -84,7 +84,8 @@ export default function InternshipPortfolioSite() {
             </p>
             <div className="space-y-4">
               <h2 className="max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
-                Building practical software projects and looking for an internship opportunity.
+                Software Engineering Student 
+            
               </h2>
               <p className="max-w-2xl text-lg leading-8 text-white/70">
                 I am a student interested in software development, embedded systems, and modern development workflows. This portfolio highlights selected coursework, technical skills, and projects that reflect how I learn and build.
@@ -238,7 +239,9 @@ export default function InternshipPortfolioSite() {
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white">LinkedIn</a>
-              <a href="#" className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white">Download CV</a>
+              <a href="/Ildo_CV.pdf"
+              download
+               className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white">Download CV</a>
             </div>
           </div>
         </section>
