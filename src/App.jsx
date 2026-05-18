@@ -7,7 +7,7 @@ import mlImg from "./assets/projects/MachineLearning.png";
 export default function InternshipPortfolioSite() {
   const projects = [
   {
-    title: "Embedded LED Controller",
+    title: "Embedded Controllers",
     subtitle: "C / Embedded Systems / Microcontroller Programming",
     image: embeddedImg,
     description:
@@ -80,7 +80,7 @@ export default function InternshipPortfolioSite() {
         <section className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.2fr_0.8fr] md:py-28">
           <div className="space-y-6">
             <p className="inline-block rounded-full border border-white/15 px-4 py-2 text-sm text-white/75">
-              Software / Embedded / DevOps Student
+              Software / Embedded / DevOps / Web Development
             </p>
             <div className="space-y-4">
               <h2 className="max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
@@ -132,7 +132,7 @@ export default function InternshipPortfolioSite() {
                 </div>
                 <div>
                   <p className="text-white/45">Current Work</p>
-                  <p className="mt-1 text-base text-white">University exercises, portfolio building, and project-based learning</p>
+                  <p className="mt-1 text-base text-white">University exercises, portfolio building, project-based learning and Semester Projects</p>
                 </div>
               </div>
             </div>
