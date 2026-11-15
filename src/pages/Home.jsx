@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import { CV_FILENAME, CV_URL, GITHUB_URL, LINKEDIN_URL } from "../lib/links";
 
@@ -9,10 +9,10 @@ import powerPlatformImg from "../assets/projects/PowerPlatform.svg";
 import budgetPlannerImg from "../assets/projects/budgetplanner/thumbnail.jpg";
 import gameCenterImg from "../assets/projects/gamecenter/home.jpg";
 import chessTrackImg from "../assets/projects/chesstrack/home.jpg";
-import embeddedImg from "../assets/projects/Embedded.jpg";
-import devopsImg from "../assets/projects/Devops.jpg";
 import webImg from "../assets/projects/Web.png";
 import mlImg from "../assets/projects/MachineLearning.png";
+import embeddedImg from "../assets/projects/Embedded.jpg";
+import devopsImg from "../assets/projects/Devops.jpg";
 
 const projects = [
   {
@@ -50,45 +50,41 @@ const projects = [
     title: "ChessTrack",
     subtitle: "SEP4 Team Project · React / Lichess API / IoT",
     image: chessTrackImg,
+    badge: { label: "Team Project", className: "border-amber-400/40 bg-slate-950/75 text-amber-300" },
     description:
       "A chess performance assistant pairing Lichess/Chess.com activity with IoT sensors and an ML tilt predictor. I built the frontend as part of a cross-functional SEP4 team.",
     tech: ["React", "Vite", "React Router", "Lichess OAuth"],
     internalPath: "/chesstrack",
   },
+];
+
+const coursework = [
   {
     title: "Web Development",
-    subtitle: "HTML / CSS / JavaScript",
     image: webImg,
-    description:
-      "A collection of web development exercises focused on JavaScript fundamentals, DOM manipulation, and frontend development concepts.",
+    description: "JavaScript fundamentals, DOM manipulation and core frontend concepts.",
     tech: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/ildomota/web2-exercises",
   },
   {
-    title: "Regression Models Analysis",
-    subtitle: "Python / Machine Learning",
+    title: "Regression Models",
     image: mlImg,
-    description:
-      "A machine learning exercise exploring Ridge, Lasso, and Elastic Net regression models. The project compares model behavior using standardized data and practical notebook-based analysis.",
-    tech: ["Python", "Scikit-learn", "Jupyter"],
+    description: "Comparing Ridge, Lasso and Elastic Net regression on standardized data in Jupyter.",
+    tech: ["Python", "Scikit-learn"],
     github: "https://github.com/ildomota/Exercises",
   },
   {
     title: "Embedded Controllers",
-    subtitle: "C / Embedded Systems / Microcontroller Programming",
     image: embeddedImg,
-    description:
-      "A microcontroller program written in C that controls LEDs based on button input. The project focuses on hardware-level programming, switch logic, and working directly with registers.",
+    description: "C on a microcontroller: LEDs driven by button input, working directly with registers.",
     tech: ["C", "AVR", "PlatformIO"],
     github: "https://github.com/ildomota/esw-exercises",
   },
   {
-    title: "Containerized Spring Boot Application",
-    subtitle: "Docker / Kubernetes / DevOps",
+    title: "Containerized Spring Boot",
     image: devopsImg,
-    description:
-      "A containerized Spring Boot application deployed with Docker and Kubernetes. The work demonstrates image building, container execution, and deployment in a local cluster environment.",
-    tech: ["Docker", "Kubernetes", "Java", "Spring Boot"],
+    description: "A Spring Boot app packaged with Docker and deployed to a local Kubernetes cluster.",
+    tech: ["Java", "Docker", "Kubernetes"],
     github: "https://github.com/ildomota/devops-exercises",
   },
 ];
@@ -109,6 +105,10 @@ const skills = [
   "React",
   "TypeScript",
   "JavaScript",
+  "Node.js",
+  "SQL",
+  "PostgreSQL",
+  "Supabase",
   "Python",
   "C",
   "HTML/CSS",
@@ -116,8 +116,6 @@ const skills = [
   "Kubernetes",
   "Git & GitHub",
   "PlatformIO",
-  "Problem Solving",
-  "Teamwork",
 ];
 
 export default function Home() {
@@ -299,26 +297,51 @@ export default function Home() {
                 </div>
 
                 <div className="mt-auto pt-6">
-                  {project.internalPath ? (
-                    <Link
-                      to={project.internalPath}
-                      className="inline-block rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/5"
-                    >
-                      {project.linkLabel || "View Project"}
-                    </Link>
-                  ) : (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/5"
-                    >
-                      View in GitHub
-                    </a>
-                  )}
+                  <Link
+                    to={project.internalPath}
+                    className="inline-block rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/5"
+                  >
+                    {project.linkLabel || "View Project"}
+                  </Link>
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="mt-16">
+            <p className="text-sm uppercase tracking-[0.2em] text-white/50">Coursework</p>
+            <h3 className="mt-3 text-2xl font-semibold">Exercises from my degree</h3>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {coursework.map((item) => (
+                <a
+                  key={item.title}
+                  href={item.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/[0.06]"
+                >
+                  <div className="overflow-hidden rounded-xl">
+                    <img
+                      src={item.image}
+                      alt=""
+                      className="h-32 w-full object-cover transition duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  <h4 className="mt-4 flex items-center justify-between gap-2 font-semibold">
+                    <span>
+                      {item.title}
+                      <span className="sr-only"> (opens on GitHub)</span>
+                    </span>
+                    <ArrowUpRight
+                      className="h-4 w-4 shrink-0 text-white/30 transition group-hover:text-white"
+                      aria-hidden="true"
+                    />
+                  </h4>
+                  <p className="mt-2 text-sm leading-6 text-white/60">{item.description}</p>
+                  <p className="mt-auto pt-4 text-xs text-white/45">{item.tech.join(" · ")}</p>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -326,7 +349,7 @@ export default function Home() {
         <section id="skills" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-12">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
             <p className="text-sm uppercase tracking-[0.2em] text-white/50">Skills</p>
-            <h3 className="mt-3 text-3xl font-semibold">Tools and strengths</h3>
+            <h3 className="mt-3 text-3xl font-semibold">Tools and technologies</h3>
             <div className="mt-6 flex flex-wrap gap-3">
               {skills.map((skill) => (
                 <span
