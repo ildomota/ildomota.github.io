@@ -70,7 +70,7 @@ export default function ApprovalCardMockup() {
       </div>
 
       <p className="mt-4 text-center text-xs italic text-white/35">
-        Recreated with placeholder data for this page — no real app names, people or environments
+        Recreated with placeholder data for this page. No real app names, people or environments
         are shown.
       </p>
     </div>

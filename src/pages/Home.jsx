@@ -1,102 +1,129 @@
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
+import { CV_FILENAME, CV_URL, GITHUB_URL, LINKEDIN_URL } from "../lib/links";
 
 import profile from "../assets/profile.jpg.jfif";
 
 import powerPlatformImg from "../assets/projects/PowerPlatform.svg";
-import chessTrackImg from "../assets/projects/chesstrack/home.jpg";
+import budgetPlannerImg from "../assets/projects/budgetplanner/thumbnail.jpg";
 import gameCenterImg from "../assets/projects/gamecenter/home.jpg";
+import chessTrackImg from "../assets/projects/chesstrack/home.jpg";
 import embeddedImg from "../assets/projects/Embedded.jpg";
 import devopsImg from "../assets/projects/Devops.jpg";
 import webImg from "../assets/projects/Web.png";
 import mlImg from "../assets/projects/MachineLearning.png";
 
+const projects = [
+  {
+    title: "Power Platform Engineering",
+    subtitle: "Internship · Power Apps / Power Automate / Dataverse",
+    image: powerPlatformImg,
+    badge: { label: "Featured", className: "border-teal-400/40 bg-slate-950/75 text-teal-300" },
+    description:
+      "My internship work at Siemens Energy: a governed DEV → PROD deployment pipeline, and Health Check, a Power Apps tool that documents and checks every solution.",
+    tech: ["Power Automate", "Power Apps", "Dataverse", "Power Platform Pipelines"],
+    internalPath: "/power-platform",
+    linkLabel: "View Internship Work",
+  },
+  {
+    title: "Budget Planner",
+    subtitle: "Personal Project · Mobile App / React / LLM Implementation",
+    image: budgetPlannerImg,
+    badge: { label: "In Daily Use", className: "border-rose-400/40 bg-slate-950/75 text-rose-300" },
+    description:
+      "A mobile budgeting app where you just tell an AI assistant what you spent and it logs it for you. Used every day by my family.",
+    tech: ["React", "TypeScript", "Supabase", "Claude API"],
+    internalPath: "/budget-planner",
+  },
+  {
+    title: "GameCenter",
+    subtitle: "Personal Project · React / Node.js / PostgreSQL",
+    image: gameCenterImg,
+    badge: { label: "Automated System", className: "border-violet-400/40 bg-slate-950/75 text-violet-300" },
+    description:
+      "A game discovery platform with a self-growing library, pulling fresh titles from RAWG and live pricing from Steam every day. Solo-built end to end, frontend to database.",
+    tech: ["React", "Node.js", "Prisma", "PostgreSQL", "TanStack Query"],
+    internalPath: "/gamecenter",
+  },
+  {
+    title: "ChessTrack",
+    subtitle: "SEP4 Team Project · React / Lichess API / IoT",
+    image: chessTrackImg,
+    description:
+      "A chess performance assistant pairing Lichess/Chess.com activity with IoT sensors and an ML tilt predictor. I built the frontend as part of a cross-functional SEP4 team.",
+    tech: ["React", "Vite", "React Router", "Lichess OAuth"],
+    internalPath: "/chesstrack",
+  },
+  {
+    title: "Web Development",
+    subtitle: "HTML / CSS / JavaScript",
+    image: webImg,
+    description:
+      "A collection of web development exercises focused on JavaScript fundamentals, DOM manipulation, and frontend development concepts.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/ildomota/web2-exercises",
+  },
+  {
+    title: "Regression Models Analysis",
+    subtitle: "Python / Machine Learning",
+    image: mlImg,
+    description:
+      "A machine learning exercise exploring Ridge, Lasso, and Elastic Net regression models. The project compares model behavior using standardized data and practical notebook-based analysis.",
+    tech: ["Python", "Scikit-learn", "Jupyter"],
+    github: "https://github.com/ildomota/Exercises",
+  },
+  {
+    title: "Embedded Controllers",
+    subtitle: "C / Embedded Systems / Microcontroller Programming",
+    image: embeddedImg,
+    description:
+      "A microcontroller program written in C that controls LEDs based on button input. The project focuses on hardware-level programming, switch logic, and working directly with registers.",
+    tech: ["C", "AVR", "PlatformIO"],
+    github: "https://github.com/ildomota/esw-exercises",
+  },
+  {
+    title: "Containerized Spring Boot Application",
+    subtitle: "Docker / Kubernetes / DevOps",
+    image: devopsImg,
+    description:
+      "A containerized Spring Boot application deployed with Docker and Kubernetes. The work demonstrates image building, container execution, and deployment in a local cluster environment.",
+    tech: ["Docker", "Kubernetes", "Java", "Spring Boot"],
+    github: "https://github.com/ildomota/devops-exercises",
+  },
+];
+
+const internshipHighlights = [
+  "Sole developer of the team's central deployment pipeline, so solutions reach production without anyone needing personal admin rights.",
+  "Proposed and built Health Check, a Power Apps tool that documents every solution and flow, and flags flow errors, misused connections and missing error handling.",
+  "Researched solution-architecture best practices, presented my recommendation to the lead developers and implemented it.",
+];
+
+const internshipTags = ["Power Automate", "Power Apps", "Dataverse", "Pipelines & ALM"];
+
+const skills = [
+  "Power Automate",
+  "Power Apps",
+  "Dataverse",
+  "Azure DevOps",
+  "React",
+  "TypeScript",
+  "JavaScript",
+  "Python",
+  "C",
+  "HTML/CSS",
+  "Docker",
+  "Kubernetes",
+  "Git & GitHub",
+  "PlatformIO",
+  "Problem Solving",
+  "Teamwork",
+];
+
 export default function Home() {
-  const projects = [
-    {
-      title: "Power Platform Engineering",
-      subtitle: "Internship · Power Apps / Power Automate / Dataverse",
-      image: powerPlatformImg,
-      featured: true,
-      description:
-        "A shared DEV → PROD deployment pipeline built during my internship at Siemens Energy, with automated approvals, connection remapping and governance checks.",
-      tech: ["Power Automate", "Power Apps", "Dataverse", "Power Platform Pipelines"],
-      internalPath: "/power-platform",
-      linkLabel: "View Internship Work",
-    },
-    {
-      title: "ChessTrack",
-      subtitle: "SEP4 Team Project · React / Lichess API / IoT",
-      image: chessTrackImg,
-      description:
-        "A chess performance assistant pairing Lichess/Chess.com activity with IoT sensors and an ML tilt predictor — I built the frontend as part of a cross-functional SEP4 team.",
-      tech: ["React", "Vite", "React Router", "Lichess OAuth"],
-      internalPath: "/chesstrack",
-    },
-    {
-      title: "GameCenter",
-      subtitle: "Personal Project · React / Node.js / PostgreSQL",
-      image: gameCenterImg,
-      description:
-        "A game discovery platform with a self-growing library, pulling fresh titles from RAWG and live pricing from Steam every day — solo-built end to end, frontend to database.",
-      tech: ["React", "Node.js", "Prisma", "PostgreSQL", "TanStack Query"],
-      internalPath: "/gamecenter",
-    },
-    {
-      title: "Embedded Controllers",
-      subtitle: "C / Embedded Systems / Microcontroller Programming",
-      image: embeddedImg,
-      description:
-        "A microcontroller program written in C that controls LEDs based on button input. The project focuses on hardware-level programming, switch logic, and working directly with registers.",
-      tech: ["C", "AVR", "PlatformIO"],
-      github: "https://github.com/ildomota/esw-exercises",
-    },
-    {
-      title: "Containerized Spring Boot Application",
-      subtitle: "Docker / Kubernetes / DevOps",
-      image: devopsImg,
-      description:
-        "A containerized Spring Boot application deployed with Docker and Kubernetes. The work demonstrates image building, container execution, and deployment in a local cluster environment.",
-      tech: ["Docker", "Kubernetes", "Java", "Spring Boot"],
-      github: "https://github.com/ildomota/devops-exercises",
-    },
-
-    {
-      title: "Web Development",
-      subtitle: "HTML / CSS / JavaScript",
-      image: webImg,
-      description:
-        "A collection of web development exercises focused on JavaScript fundamentals, DOM manipulation, and frontend development concepts.",
-      tech: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/ildomota/web2-exercises",
-    },
-    {
-      title: "Regression Models Analysis",
-      subtitle: "Python / Machine Learning",
-      image: mlImg,
-      description:
-        "A machine learning exercise exploring Ridge, Lasso, and Elastic Net regression models. The project compares model behavior using standardized data and practical notebook-based analysis.",
-      tech: ["Python", "Scikit-learn", "Jupyter"],
-      github: "https://github.com/ildomota/Exercises",
-    },
-  ];
-
-  const skills = [
-    "C",
-    "Python",
-    "Git & GitHub",
-    "HTML/CSS",
-    "JavaScript",
-    "Docker",
-    "Kubernetes",
-    "PlatformIO",
-    "Problem Solving",
-    "Teamwork",
-  ];
-
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-slate-950 via-blue-950 to-black text-white overflow-hidden">
-      <div className="absolute right-0 top-40 w-[500px] h-[500px] bg-blue-500/20 blur-[160px] rounded-full pointer-events-none"></div>
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-950 via-blue-950 to-black text-white">
+      <div className="pointer-events-none absolute right-0 top-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[160px]"></div>
       <SiteHeader>
         <nav className="hidden gap-6 text-sm text-white/75 md:flex">
           <a href="#about" className="transition hover:text-white">About</a>
@@ -107,18 +134,21 @@ export default function Home() {
       </SiteHeader>
 
       <main>
-        <section className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.2fr_0.8fr] md:py-28">
+        {/* Hero */}
+        <section className="mx-auto grid max-w-6xl gap-10 px-6 pt-20 pb-10 md:grid-cols-[1.2fr_0.8fr] md:pt-28">
           <div className="space-y-6">
             <p className="inline-block rounded-full border border-white/15 px-4 py-2 text-sm text-white/75">
-              Software / Embedded / DevOps / Web Development
+              Software / Automation / DevOps / Web Development
             </p>
             <div className="space-y-4">
               <h2 className="max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
                 Software Engineering Student
-
               </h2>
               <p className="max-w-2xl text-lg leading-8 text-white/70">
-                I am a student interested in software development, embedded systems, and modern development workflows. This portfolio highlights selected coursework, technical skills, and projects that reflect how I learn and build.
+                Software engineering student with a business background, currently building
+                enterprise automation on Microsoft Power Platform as an intern at Siemens Energy.
+                This portfolio collects the work I'm proudest of, from internship tooling to apps
+                I've built on my own.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -135,27 +165,39 @@ export default function Home() {
                 Contact Me
               </a>
             </div>
+
+            <div id="about" className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/5 p-8">
+              <p className="text-sm uppercase tracking-[0.2em] text-white/50">About Me</p>
+              <h3 className="mt-4 text-2xl font-semibold">Passionate about real systems</h3>
+              <p className="mt-4 leading-8 text-white/70">
+                I enjoy working through technical problems step by step and learning by building.
+                Before software I studied Marketing Management, so I care about the people who'll
+                actually use what I make. Outside my studies I build my own apps, some of which
+                my family now uses every day.
+              </p>
+            </div>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/30">
+          <div className="self-start rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/30">
             <div className="rounded-2xl border border-white/10 bg-neutral-900 p-6">
-            <img
-            src={profile}
-            alt="Ildo Mota"
-            className="w-80 h-80 rounded-full mx-auto mb-6 object-cover border border-white/20 shadow-lg shadow-black/40 hover:scale-115 transition duration-300"
-            />
-
+              <img
+                src={profile}
+                alt="Ildo Mota"
+                className="mx-auto mb-6 h-80 w-80 rounded-full border border-white/20 object-cover shadow-lg shadow-black/40 transition duration-300 hover:scale-115"
+              />
               <p className="text-sm uppercase tracking-[0.2em] text-white/50">Ildo Mota</p>
-              <p className="mt-2 text-lg text-white/80">
-              Software Engineering Student
+              <p className="mt-2 text-lg leading-7 text-white/80">
+                Software Engineering Student
+                <br />
+                Power Platform Developer
               </p>
               <p className="mt-3 text-sm text-white/70">
-              C • Python • Java • C# • Docker • Kubernetes • JavaScript • Git
+                C • Python • Java • C# • Docker • JavaScript • Power Platform • Power Automate • Power Apps • Dataverse
               </p>
               <div className="mt-6 space-y-5 text-sm">
                 <div>
                   <p className="text-white/45">Focus</p>
-                  <p className="mt-1 text-base text-white">Internship in software, embedded, or technical development roles</p>
+                  <p className="mt-1 text-base text-white">Process automation, governance and security, and software development</p>
                 </div>
                 <div>
                   <p className="text-white/45">Strengths</p>
@@ -163,33 +205,61 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="text-white/45">Current Work</p>
-                  <p className="mt-1 text-base text-white">University exercises, portfolio building, project-based learning and Semester Projects</p>
+                  <p className="mt-1 text-base text-white">
+                    Intern at Siemens Energy, automating processes with Power Automate flows and building Power Apps
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="about" className="mx-auto max-w-6xl px-6 py-12">
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/50">About Me</p>
-              <h3 className="mt-4 text-2xl font-semibold">A practical learner with interest in real systems</h3>
-              <p className="mt-4 leading-8 text-white/70">
-                I enjoy working through technical problems step by step and improving through hands-on practice. My studies have included programming, software design, embedded systems, version control, and development tools that are relevant for real engineering work.
-              </p>
-            </div>
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/50">What I’m Looking For</p>
-              <h3 className="mt-4 text-2xl font-semibold">An internship where I can contribute and grow</h3>
-              <p className="mt-4 leading-8 text-white/70">
-                I’m looking for an internship where I can keep developing technical skills, contribute to real projects, and gain experience in a professional team environment.
-              </p>
+        {/* Current internship */}
+        <section id="internship" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-10">
+          <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-teal-400/[0.07] via-white/5 to-blue-500/[0.07] p-8 md:p-10">
+            <div className="grid gap-10 md:grid-cols-[1fr_1.1fr]">
+              <div>
+                <p className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-white/50">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
+                  Current Internship
+                </p>
+                <h3 className="mt-4 text-2xl font-semibold md:text-3xl">Software Engineering Intern · Siemens Energy</h3>
+                <p className="mt-2 text-sm text-white/50">Power Platform · Aug 2026 – Jan 2027</p>
+                <p className="mt-5 leading-8 text-white/70">
+                  I develop Power Automate flows that automate business processes and build Power Apps
+                  for my team, with a strong focus on governance, security and documentation.
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {internshipTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-white/80"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <Link
+                  to="/power-platform"
+                  className="mt-7 inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/5"
+                >
+                  See what I'm working on <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
+              <ul className="space-y-5 self-center">
+                {internshipHighlights.map((line) => (
+                  <li key={line} className="flex gap-3 leading-7 text-white/75">
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-300"></span>
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
 
-        <section id="projects" className="mx-auto max-w-6xl px-6 py-12">
+        {/* Projects */}
+        <section id="projects" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-12">
           <div className="mb-8">
             <p className="text-sm uppercase tracking-[0.2em] text-white/50">Projects</p>
             <h3 className="mt-3 text-3xl font-semibold">Selected work</h3>
@@ -198,59 +268,62 @@ export default function Home() {
             {projects.map((project) => (
               <article
                 key={project.title}
-                className="relative rounded-3xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:bg-white/[0.07] hover:border-white/30"
+                className="relative flex flex-col rounded-3xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-white/30 hover:bg-white/[0.07]"
               >
-                {project.featured && (
-                  <span className="absolute right-5 top-5 z-10 rounded-full border border-teal-400/30 bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300">
-                    Featured
+                {project.badge && (
+                  <span
+                    className={`absolute right-5 top-5 z-10 rounded-full border px-3 py-1 text-xs font-medium backdrop-blur ${project.badge.className}`}
+                  >
+                    {project.badge.label}
                   </span>
                 )}
-                <div className="overflow-hidden rounded-xl mb-4">
+                <div className="mb-4 overflow-hidden rounded-xl">
                   <img
-                  src={project.image}
-                   alt={project.title}
-                   className="w-full h-40 object-cover transition duration-300 hover:scale-110"
-                    />
-                    </div>
+                    src={project.image}
+                    alt={project.title}
+                    className="h-40 w-full object-cover transition duration-300 hover:scale-110"
+                  />
+                </div>
                 <p className="text-sm text-white/50">{project.subtitle}</p>
                 <h4 className="mt-3 text-xl font-semibold">{project.title}</h4>
                 <p className="mt-4 leading-7 text-white/70">{project.description}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
-                 {project.tech.map((item) => (
-                 <span
-                   key={item}
-                   className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-white/80"
-                  >
-                    {item}
-                   </span>
-                 ))}
-               </div>
+                  {project.tech.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-white/80"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
 
-               <div className="mt-6">
-                {project.internalPath ? (
-                  <Link
-                    to={project.internalPath}
-                    className="inline-block rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/5"
-                  >
-                    {project.linkLabel || "View Project"}
-                  </Link>
-                ) : (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/5"
-                  >
-                    View in GitHub
-                  </a>
-                )}
-               </div>
+                <div className="mt-auto pt-6">
+                  {project.internalPath ? (
+                    <Link
+                      to={project.internalPath}
+                      className="inline-block rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/5"
+                    >
+                      {project.linkLabel || "View Project"}
+                    </Link>
+                  ) : (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/5"
+                    >
+                      View in GitHub
+                    </a>
+                  )}
+                </div>
               </article>
             ))}
           </div>
         </section>
 
-        <section id="skills" className="mx-auto max-w-6xl px-6 py-12">
+        {/* Skills */}
+        <section id="skills" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-12">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
             <p className="text-sm uppercase tracking-[0.2em] text-white/50">Skills</p>
             <h3 className="mt-3 text-3xl font-semibold">Tools and strengths</h3>
@@ -267,25 +340,39 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="mx-auto max-w-6xl px-6 py-12 pb-24">
+        {/* Contact */}
+        <section id="contact" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-12 pb-24">
           <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 md:p-10">
             <p className="text-sm uppercase tracking-[0.2em] text-white/50">Contact</p>
             <h3 className="mt-3 text-3xl font-semibold">Let’s connect</h3>
             <p className="mt-4 max-w-2xl leading-8 text-white/70">
-              You can add your email, LinkedIn, GitHub, and CV link here so companies can quickly reach you and view your work.
+              Want to talk about a project, an opportunity, or anything you've seen here? Reach out
+              on LinkedIn, browse my code on GitHub, or download my CV.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="https://github.com/ildomota"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-2xl bg-white px-6 py-3 font-medium text-black">GitHub</a>
-              <a href="https://www.linkedin.com/in/ildo-mota-32a39b21b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white">LinkedIn</a>
-              <a href="/Ildo_CV2.pdf"
-              download
-               className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white">Download CV</a>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl bg-white px-6 py-3 font-medium text-black"
+              >
+                GitHub
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white"
+              >
+                LinkedIn
+              </a>
+              <a
+                href={CV_URL}
+                download={CV_FILENAME}
+                className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white"
+              >
+                Download CV
+              </a>
             </div>
           </div>
         </section>

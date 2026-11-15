@@ -12,6 +12,7 @@ import {
 import SiteHeader from "../components/SiteHeader";
 import SectionLabel from "../components/SectionLabel";
 import IconTile from "../components/IconTile";
+import { CV_FILENAME, CV_URL, LINKEDIN_URL } from "../lib/links";
 
 import homeShot from "../assets/projects/chesstrack/home.jpg";
 import loginShot from "../assets/projects/chesstrack/login.jpg";
@@ -59,7 +60,7 @@ const features = [
   {
     title: "IoT dashboard (co-built)",
     icon: Gauge,
-    body: "Live temperature and light readings from the team's sensors, auto-refreshing every 10 seconds — built alongside two teammates.",
+    body: "Live temperature and light readings from the team's sensors, auto-refreshing every 10 seconds. Built alongside two teammates.",
   },
   {
     title: "Shared Navbar component",
@@ -69,7 +70,7 @@ const features = [
   {
     title: "CRA → Vite migration",
     icon: Zap,
-    body: "Replaced Create React App with Vite across the frontend — build config, dev/build scripts, the CI pipeline and the Docker build all updated to match.",
+    body: "Replaced Create React App with Vite across the frontend, updating the build config, dev/build scripts, the CI pipeline and the Docker build to match.",
   },
   {
     title: "Bootstrap & sensor wiring",
@@ -79,10 +80,10 @@ const features = [
 ];
 
 const gallery = [
-  { src: homeShot, caption: "Landing page — animated hero, Lichess sign-in entry point" },
+  { src: homeShot, caption: "Landing page: animated hero, Lichess sign-in entry point" },
   { src: loginShot, caption: "Lichess OAuth login" },
-  { src: tiltShot, caption: "ML tilt predictor — built by a teammate on the ML workstream" },
-  { src: preferencesShot, caption: "Player preferences — built by a teammate on the frontend team" },
+  { src: tiltShot, caption: "ML tilt predictor, built by a teammate on the ML workstream" },
+  { src: preferencesShot, caption: "Player preferences, built by a teammate on the frontend team" },
 ];
 
 const stackTags = ["Node.js", "Python / FastAPI", "gRPC", "Docker", "Caddy", "C (IoT sensors)"];
@@ -135,12 +136,12 @@ export default function ChessTrack() {
             Built, deployed, and demoed with a cross-functional team
           </p>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/70">
-            ChessTrack is a chess performance assistant built for SEP4 — VIA University College's
-            fourth-semester team project — by a cross-functional team spanning frontend, IoT and
+            ChessTrack is a chess performance assistant built for SEP4 (VIA University College's
+            fourth-semester team project) by a cross-functional team spanning frontend, IoT and
             machine learning. It connects to a player's Lichess or Chess.com account, pairs that
             activity with live environment sensors, and adds a sleep and hydration check-in before
             a session starts. I was the frontend's primary owner for the player-facing
-            experience — the landing page, Lichess OAuth login, and chess-platform lookup — and
+            experience: the landing page, Lichess OAuth login, and chess-platform lookup. I also
             led the team's migration from Create React App to Vite.
           </p>
 
@@ -201,7 +202,7 @@ export default function ChessTrack() {
           <h3 className="mt-3 text-3xl font-semibold">What the team shipped</h3>
           <p className="mt-4 max-w-3xl leading-8 text-white/70">
             ChessTrack shipped with contributions across frontend, IoT and machine learning. These
-            are the pages as the team delivered them — some built by me, others by teammates on
+            are the pages as the team delivered them, some built by me and others by teammates on
             the ML and IoT workstreams, captioned below.
           </p>
 
@@ -230,7 +231,7 @@ export default function ChessTrack() {
             <p className="mt-4 max-w-3xl leading-7 text-white/70">
               The frontend talked to a Node.js API gateway, a Python/FastAPI machine-learning
               service for the tilt predictor, gRPC services for Lichess and IoT data, and
-              C-based sensor clients — all deployed together with Docker Compose and Caddy on a
+              C-based sensor clients, all deployed together with Docker Compose and Caddy on a
               shared VPS. That side of the system was built by teammates on the IoT and ML
               workstreams.
             </p>
@@ -288,7 +289,7 @@ export default function ChessTrack() {
                 ← Back to portfolio
               </Link>
               <a
-                href="https://www.linkedin.com/in/ildo-mota-32a39b21b/"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white transition hover:bg-white/5"
@@ -296,8 +297,8 @@ export default function ChessTrack() {
                 LinkedIn
               </a>
               <a
-                href="/Ildo_CV2.pdf"
-                download
+                href={CV_URL}
+                download={CV_FILENAME}
                 className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white transition hover:bg-white/5"
               >
                 Download CV

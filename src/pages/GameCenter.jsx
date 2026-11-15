@@ -10,6 +10,7 @@ import {
 import SiteHeader from "../components/SiteHeader";
 import SectionLabel from "../components/SectionLabel";
 import IconTile from "../components/IconTile";
+import { CV_FILENAME, CV_URL, LINKEDIN_URL } from "../lib/links";
 
 import homeShot from "../assets/projects/gamecenter/home.jpg";
 import browseShot from "../assets/projects/gamecenter/browse.jpg";
@@ -62,20 +63,20 @@ const features = [
   {
     title: "Full-stack data pipeline",
     icon: Database,
-    body: "Designed the Postgres schema in Prisma, built the Express API, and wrote the ingestion scripts — including migrating the backend to Prisma 7's new driver-adapter model.",
+    body: "Designed the Postgres schema in Prisma, built the Express API, and wrote the ingestion scripts, including migrating the backend to Prisma 7's new driver-adapter model.",
   },
 ];
 
 const engineeringNotes = [
   "Adopted Prisma 7 early, which meant migrating off the old DATABASE_URL-in-env pattern to its new prisma.config.ts and driver-adapter model (@prisma/adapter-pg) ahead of most tutorials.",
-  "Added a quality gate to the fetch pipeline — RAWG's catalog includes a lot of shovelware and test entries, so recent-release fetches now filter by a minimum \"added\" (wishlist) count.",
-  "Went through several full visual redesigns — a RAWG-inspired detail layout, a navy \"New and trending\" home, a sidebar restyle — rather than settling for the first pass.",
+  "Added a quality gate to the fetch pipeline. RAWG's catalog includes a lot of shovelware and test entries, so recent-release fetches now filter by a minimum \"added\" (wishlist) count.",
+  "Went through several full visual redesigns (a RAWG-inspired detail layout, a navy \"New and trending\" home, a sidebar restyle) rather than settling for the first pass.",
 ];
 
 const gallery = [
-  { src: homeShot, caption: "Home — new & trending, ranked by player counts and release date" },
-  { src: browseShot, caption: "Browse — filter by genre and platform, sort by rating" },
-  { src: gameDetailShot, caption: "Game detail — Metacritic score and player rating breakdown" },
+  { src: homeShot, caption: "Home: new & trending, ranked by player counts and release date" },
+  { src: browseShot, caption: "Browse: filter by genre and platform, sort by rating" },
+  { src: gameDetailShot, caption: "Game detail: Metacritic score and player rating breakdown" },
   { src: mediaGalleryShot, caption: "Media gallery and full game info, sourced from RAWG and Steam" },
 ];
 
@@ -130,7 +131,7 @@ export default function GameCenter() {
             GameCenter is a game discovery platform I designed, built and deployed entirely on my
             own. It pulls from RAWG and Steam to maintain a library of thousands of games,
             refreshed automatically every night by a scheduled GitHub Actions job, with live Steam
-            pricing and player counts layered on top. The whole stack is mine end to end — schema,
+            pricing and player counts layered on top. The whole stack is mine end to end: schema,
             API, and a full React frontend with search, filtering and rich game detail pages.
           </p>
 
@@ -165,8 +166,8 @@ export default function GameCenter() {
           <SectionLabel>Solo project</SectionLabel>
           <h3 className="mt-3 text-3xl font-semibold">What I built</h3>
           <p className="mt-4 max-w-3xl leading-8 text-white/70">
-            Every part of this — the database schema, the API, the data pipeline and the
-            frontend — is my own work from the ground up.
+            The database schema, the API, the data pipeline and the frontend are all my own
+            work, built from the ground up.
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -206,7 +207,7 @@ export default function GameCenter() {
           <SectionLabel>Inside the product</SectionLabel>
           <h3 className="mt-3 text-3xl font-semibold">Screenshots of the live app</h3>
           <p className="mt-4 max-w-3xl leading-8 text-white/70">
-            Real data from the running app — the library, its filters, and a game detail page
+            Real data from the running app: the library, its filters, and a game detail page
             pulled straight from RAWG and Steam.
           </p>
 
@@ -276,7 +277,7 @@ export default function GameCenter() {
                 View in GitHub
               </a>
               <a
-                href="https://www.linkedin.com/in/ildo-mota-32a39b21b/"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white transition hover:bg-white/5"
@@ -284,8 +285,8 @@ export default function GameCenter() {
                 LinkedIn
               </a>
               <a
-                href="/Ildo_CV2.pdf"
-                download
+                href={CV_URL}
+                download={CV_FILENAME}
                 className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white transition hover:bg-white/5"
               >
                 Download CV
