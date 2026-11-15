@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, Lock } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
+import ProfileCard from "../components/ProfileCard";
+import PresentationPlayer from "../components/PresentationPlayer";
 import { CV_FILENAME, CV_URL, GITHUB_URL, LINKEDIN_URL } from "../lib/links";
-
-import profile from "../assets/profile.jpg.jfif";
 
 import powerPlatformImg from "../assets/projects/PowerPlatform.svg";
 import budgetPlannerImg from "../assets/projects/budgetplanner/thumbnail.jpg";
@@ -176,6 +176,7 @@ export default function Home() {
       <SiteHeader>
         <nav className="hidden gap-6 text-sm text-white/75 md:flex">
           <a href="#about" className="transition hover:text-white">About</a>
+          <a href="#presentation" className="transition hover:text-white">Presentation</a>
           <a href="#projects" className="transition hover:text-white">Projects</a>
           <a href="#skills" className="transition hover:text-white">Skills</a>
           <a href="#contact" className="transition hover:text-white">Contact</a>
@@ -227,40 +228,16 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="self-start rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/30">
-            <div className="rounded-2xl border border-white/10 bg-neutral-900 p-6">
-              <img
-                src={profile}
-                alt="Ildo Mota"
-                className="mx-auto mb-6 h-80 w-80 rounded-full border border-white/20 object-cover shadow-lg shadow-black/40 transition duration-300 hover:scale-115"
-              />
-              <p className="text-sm uppercase tracking-[0.2em] text-white/50">Ildo Mota</p>
-              <p className="mt-2 text-lg leading-7 text-white/80">
-                Software Engineering Student
-                <br />
-                Power Platform Developer
-              </p>
-              <p className="mt-3 text-sm text-white/70">
-                C • Python • Java • C# • Docker • JavaScript • Power Platform • Power Automate • Power Apps • Dataverse
-              </p>
-              <div className="mt-6 space-y-5 text-sm">
-                <div>
-                  <p className="text-white/45">Focus</p>
-                  <p className="mt-1 text-base text-white">Process automation, governance and security, and software development</p>
-                </div>
-                <div>
-                  <p className="text-white/45">Strengths</p>
-                  <p className="mt-1 text-base text-white">Hands-on learning, persistence, practical debugging, and steady technical growth</p>
-                </div>
-                <div>
-                  <p className="text-white/45">Current Work</p>
-                  <p className="mt-1 text-base text-white">
-                    Intern at Siemens Energy, automating processes with Power Automate flows and building Power Apps
-                  </p>
-                </div>
-              </div>
-            </div>
+          <ProfileCard />
+        </section>
+
+        {/* Presentation */}
+        <section id="presentation" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-10">
+          <div className="mb-6">
+            <p className="text-sm uppercase tracking-[0.2em] text-brand">Presentation</p>
+            <h3 className="mt-3 text-3xl font-semibold">Play Interactive Presentation</h3>
           </div>
+          <PresentationPlayer />
         </section>
 
         {/* Current internship */}
