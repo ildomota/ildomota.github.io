@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Lock } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import { CV_FILENAME, CV_URL, GITHUB_URL, LINKEDIN_URL } from "../lib/links";
 
@@ -9,6 +9,7 @@ import powerPlatformImg from "../assets/projects/PowerPlatform.svg";
 import budgetPlannerImg from "../assets/projects/budgetplanner/thumbnail.jpg";
 import gameCenterImg from "../assets/projects/gamecenter/home.jpg";
 import chessTrackImg from "../assets/projects/chesstrack/home.jpg";
+import cineVibeImg from "../assets/projects/cinevibe/thumbnail.jpg";
 import webImg from "../assets/projects/Web.png";
 import mlImg from "../assets/projects/MachineLearning.png";
 import embeddedImg from "../assets/projects/Embedded.jpg";
@@ -55,6 +56,16 @@ const projects = [
       "A chess performance assistant pairing Lichess/Chess.com activity with IoT sensors and an ML tilt predictor. I built the frontend as part of a cross-functional SEP4 team.",
     tech: ["React", "Vite", "React Router", "Lichess OAuth"],
     internalPath: "/chesstrack",
+  },
+  {
+    title: "CineVibe",
+    subtitle: "SEP3 Team Project · Blazor / ASP.NET Core / Spring Boot",
+    image: cineVibeImg,
+    badge: { label: "Distributed System", className: "border-fuchsia-400/40 bg-slate-950/75 text-fuchsia-300" },
+    description:
+      "A cinema booking system: pick a showtime, choose seats on a live seat map, add snacks and pay with loyalty points. Built as a team across C# and Java.",
+    tech: ["Blazor", "ASP.NET Core", "Spring Boot", "PostgreSQL"],
+    internalPath: "/cinevibe",
   },
 ];
 
@@ -117,6 +128,46 @@ const skills = [
   "Git & GitHub",
   "PlatformIO",
 ];
+
+// Teaser for an upcoming project: no page, no screenshots, just a hint.
+function TeaserCard() {
+  return (
+    <article className="relative flex flex-col rounded-3xl border border-dashed border-white/20 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:border-white/30 hover:bg-white/[0.07]">
+      <span className="absolute right-5 top-5 z-10 inline-flex items-center gap-2 rounded-full border border-sky-400/40 bg-slate-950/75 px-3 py-1 text-xs font-medium text-sky-300 backdrop-blur">
+        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-sky-300"></span>
+        Coming Soon
+      </span>
+      <div className="relative mb-4 flex h-40 items-center justify-center overflow-hidden rounded-xl bg-slate-950">
+        <div className="absolute -left-8 -top-10 h-36 w-36 animate-pulse rounded-full bg-sky-500/40 blur-2xl"></div>
+        <div className="absolute -bottom-12 right-0 h-40 w-40 rounded-full bg-emerald-400/25 blur-2xl"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+        <div className="relative flex flex-col items-center gap-3">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-white/10 backdrop-blur">
+            <Lock className="h-5 w-5 text-white" strokeWidth={1.75} aria-hidden="true" />
+          </div>
+          <p className="text-xs font-semibold tracking-[0.3em] text-white/60">UNDER WRAPS</p>
+        </div>
+      </div>
+      <p className="text-sm text-white/50">Personal Project · SaaS · In Development</p>
+      <h4 className="mt-3 text-xl font-semibold">My First SaaS</h4>
+      <p className="mt-4 leading-7 text-white/70">
+        A product I'm building from scratch, and my first SaaS. The details are under wraps for
+        now, but it's on its way.
+      </p>
+      <div className="mt-5 flex flex-wrap gap-2" aria-hidden="true">
+        {["w-16", "w-24", "w-20"].map((width) => (
+          <span key={width} className={`h-6 ${width} animate-pulse rounded-full border border-white/10 bg-white/10`}></span>
+        ))}
+      </div>
+      <div className="mt-auto pt-6">
+        <span className="inline-flex items-center gap-2 rounded-2xl border border-dashed border-white/20 px-4 py-2 text-sm font-medium text-white/50">
+          <Lock className="h-3.5 w-3.5" aria-hidden="true" />
+          Stay Tuned
+        </span>
+      </div>
+    </article>
+  );
+}
 
 export default function Home() {
   return (
@@ -306,6 +357,7 @@ export default function Home() {
                 </div>
               </article>
             ))}
+            <TeaserCard />
           </div>
 
           <div className="mt-16">
