@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, Lock } from "lucide-react";
+import { ArrowRight, ArrowUp, ArrowUpRight, Download, Lock } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import ProfileCard from "../components/ProfileCard";
+import BrandUnderline from "../components/BrandUnderline";
+import OrbitRings from "../components/OrbitRings";
 import PresentationPlayer from "../components/PresentationPlayer";
 import { CV_FILENAME, CV_URL, GITHUB_URL, LINKEDIN_URL, PRESENTATION_URL } from "../lib/links";
 
@@ -18,7 +20,7 @@ import devopsImg from "../assets/projects/Devops.jpg";
 const projects = [
   {
     title: "Power Platform Engineering",
-    subtitle: "Internship · Power Apps / Power Automate / Dataverse",
+    subtitle: "Internship",
     image: powerPlatformImg,
     badge: { label: "Featured", className: "border-teal-400/40 bg-slate-950/75 text-teal-300" },
     description:
@@ -29,7 +31,7 @@ const projects = [
   },
   {
     title: "Budget Planner",
-    subtitle: "Personal Project · Mobile App / React / LLM Implementation",
+    subtitle: "Personal Project",
     image: budgetPlannerImg,
     badge: { label: "In Daily Use", className: "border-rose-400/40 bg-slate-950/75 text-rose-300" },
     description:
@@ -39,7 +41,7 @@ const projects = [
   },
   {
     title: "GameCenter",
-    subtitle: "Personal Project · React / Node.js / PostgreSQL",
+    subtitle: "Personal Project",
     image: gameCenterImg,
     badge: { label: "Automated System", className: "border-violet-400/40 bg-slate-950/75 text-violet-300" },
     description:
@@ -49,7 +51,7 @@ const projects = [
   },
   {
     title: "ChessTrack",
-    subtitle: "SEP4 Team Project · React / Lichess API / IoT",
+    subtitle: "Semester Project",
     image: chessTrackImg,
     badge: { label: "Team Project", className: "border-amber-400/40 bg-slate-950/75 text-amber-300" },
     description:
@@ -59,7 +61,7 @@ const projects = [
   },
   {
     title: "CineVibe",
-    subtitle: "SEP3 Team Project · Blazor / ASP.NET Core / Spring Boot",
+    subtitle: "Semester Project",
     image: cineVibeImg,
     badge: { label: "Distributed System", className: "border-fuchsia-400/40 bg-slate-950/75 text-fuchsia-300" },
     description:
@@ -108,25 +110,11 @@ const internshipHighlights = [
 
 const internshipTags = ["Power Automate", "Power Apps", "Dataverse", "Pipelines & ALM"];
 
-const skills = [
-  "Power Automate",
-  "Power Apps",
-  "Dataverse",
-  "Azure DevOps",
-  "React",
-  "TypeScript",
-  "JavaScript",
-  "Node.js",
-  "SQL",
-  "PostgreSQL",
-  "Supabase",
-  "Python",
-  "C",
-  "HTML/CSS",
-  "Docker",
-  "Kubernetes",
-  "Git & GitHub",
-  "PlatformIO",
+const skillGroups = [
+  { label: "Power Platform", items: ["Power Automate", "Power Apps", "Dataverse", "Power Platform Pipelines"] },
+  { label: "Web", items: ["React", "TypeScript", "JavaScript", "Node.js", "Prisma", "Blazor", "HTML/CSS"] },
+  { label: "Languages & Data", items: ["Java", "C#", "Python", "C", "SQL", "PostgreSQL", "Supabase"] },
+  { label: "DevOps & Tools", items: ["Azure DevOps", "Docker", "Kubernetes", "Git & GitHub", "Vercel", "PlatformIO"] },
 ];
 
 // Teaser for an upcoming project: no page, no screenshots, just a hint.
@@ -171,15 +159,20 @@ function TeaserCard() {
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-950 via-blue-950 to-black text-white">
+    <div id="top" className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-950 via-blue-950 to-black text-white">
       <div className="pointer-events-none absolute right-0 top-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[160px]"></div>
       <SiteHeader>
-        <nav className="hidden gap-6 text-sm text-white/75 md:flex">
-          <a href="#about" className="transition hover:text-white">About</a>
-          <a href="#presentation" className="transition hover:text-white">Presentation</a>
-          <a href="#projects" className="transition hover:text-white">Projects</a>
-          <a href="#skills" className="transition hover:text-white">Skills</a>
-          <a href="#contact" className="transition hover:text-white">Contact</a>
+        <nav className="hidden items-center gap-7 text-sm text-white/75 md:flex">
+          <a href="#about" className="nav-link">About</a>
+          <a href="#presentation" className="nav-link">Presentation</a>
+          <a href="#projects" className="nav-link">Projects</a>
+          <a href="#skills" className="nav-link">Skills</a>
+          <a
+            href="#contact"
+            className="rounded-full border border-brand/50 px-4 py-1.5 font-medium text-brand-soft transition hover:border-brand hover:bg-brand hover:text-slate-950"
+          >
+            Contact
+          </a>
         </nav>
       </SiteHeader>
 
@@ -204,7 +197,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="#projects"
-                className="rounded-2xl bg-white px-6 py-3 font-medium text-black transition hover:scale-[1.02]"
+                className="rounded-2xl bg-brand px-6 py-3 font-semibold text-slate-950 transition hover:scale-[1.02] hover:bg-brand-soft"
               >
                 View Projects
               </a>
@@ -217,7 +210,7 @@ export default function Home() {
             </div>
 
             <div id="about" className="scroll-mt-28 rounded-3xl border border-white/10 bg-white/5 p-8">
-              <p className="text-sm uppercase tracking-[0.2em] text-white/50">About Me</p>
+              <p className="text-sm uppercase tracking-[0.2em] text-brand">About Me</p>
               <h3 className="mt-4 text-2xl font-semibold">Passionate about real systems</h3>
               <p className="mt-4 leading-8 text-white/70">
                 I enjoy working through technical problems step by step and learning by building.
@@ -257,7 +250,7 @@ export default function Home() {
           <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-teal-400/[0.07] via-white/5 to-blue-500/[0.07] p-8 md:p-10">
             <div className="grid gap-10 md:grid-cols-[1fr_1.1fr]">
               <div>
-                <p className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-white/50">
+                <p className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-brand">
                   <span className="h-2 w-2 rounded-full bg-emerald-400"></span>
                   Current Internship
                 </p>
@@ -279,7 +272,7 @@ export default function Home() {
                 </div>
                 <Link
                   to="/power-platform"
-                  className="mt-7 inline-flex items-center gap-2 rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/5"
+                  className="mt-7 inline-flex items-center gap-2 rounded-2xl border border-brand/50 px-4 py-2 text-sm font-medium text-brand-soft transition hover:border-brand hover:bg-brand hover:text-slate-950"
                 >
                   See what I'm working on <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
@@ -299,7 +292,7 @@ export default function Home() {
         {/* Projects */}
         <section id="projects" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-12">
           <div className="mb-8">
-            <p className="text-sm uppercase tracking-[0.2em] text-white/50">Projects</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-brand">Projects</p>
             <h3 className="mt-3 text-3xl font-semibold">Selected work</h3>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -350,7 +343,7 @@ export default function Home() {
           </div>
 
           <div className="mt-16">
-            <p className="text-sm uppercase tracking-[0.2em] text-white/50">Coursework</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-brand">Coursework</p>
             <h3 className="mt-3 text-2xl font-semibold">Exercises from my degree</h3>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {coursework.map((item) => (
@@ -388,59 +381,100 @@ export default function Home() {
 
         {/* Skills */}
         <section id="skills" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-12">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
-            <p className="text-sm uppercase tracking-[0.2em] text-white/50">Skills</p>
-            <h3 className="mt-3 text-3xl font-semibold">Tools and technologies</h3>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85"
-                >
-                  {skill}
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10">
+            <div className="pointer-events-none absolute -right-20 -top-28 h-72 w-72 rounded-full bg-brand/15 blur-3xl"></div>
+            <div className="relative">
+              <p className="text-sm uppercase tracking-[0.2em] text-brand">Skills</p>
+              <h3 className="mt-3 text-3xl font-semibold">
+                Tools and{" "}
+                <span className="relative inline-block">
+                  technologies
+                  <BrandUnderline />
                 </span>
-              ))}
+              </h3>
+              <div className="mt-10 grid gap-x-12 gap-y-8 md:grid-cols-2">
+                {skillGroups.map((group) => (
+                  <div key={group.label}>
+                    <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand ring-4 ring-brand/20"></span>
+                      {group.label}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-2.5">
+                      {group.items.map((skill) => (
+                        <span
+                          key={skill}
+                          className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand/60 hover:bg-brand/10 hover:text-white"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         {/* Contact */}
-        <section id="contact" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-12 pb-24">
-          <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 md:p-10">
-            <p className="text-sm uppercase tracking-[0.2em] text-white/50">Contact</p>
-            <h3 className="mt-3 text-3xl font-semibold">Let’s connect</h3>
-            <p className="mt-4 max-w-2xl leading-8 text-white/70">
-              Want to talk about a project, an opportunity, or anything you've seen here? Reach out
-              on LinkedIn, browse my code on GitHub, or download my CV.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href={GITHUB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-2xl bg-white px-6 py-3 font-medium text-black"
-              >
-                GitHub
-              </a>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white"
-              >
-                LinkedIn
-              </a>
-              <a
-                href={CV_URL}
-                download={CV_FILENAME}
-                className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white"
-              >
-                Download CV
-              </a>
+        <section id="contact" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-12">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 md:p-10">
+            <div className="pointer-events-none absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-brand/15 blur-3xl"></div>
+            <div className="pointer-events-none absolute -right-16 top-1/2 hidden h-80 w-80 -translate-y-1/2 opacity-70 md:block">
+              <OrbitRings />
+            </div>
+            <div className="relative">
+              <p className="text-sm uppercase tracking-[0.2em] text-brand">Contact</p>
+              <h3 className="mt-3 text-3xl font-semibold">
+                Let’s{" "}
+                <span className="relative inline-block">
+                  connect
+                  <BrandUnderline />
+                </span>
+              </h3>
+              <p className="mt-6 max-w-2xl leading-8 text-white/70">
+                Want to talk about a project, an opportunity, or anything you've seen here? Reach
+                out on LinkedIn, browse my code on GitHub, or download my CV.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-brand px-6 py-3 font-semibold text-slate-950 transition hover:scale-[1.02] hover:bg-brand-soft"
+                >
+                  LinkedIn <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+                <a
+                  href={GITHUB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-6 py-3 font-medium text-white transition hover:border-brand/60 hover:bg-white/5"
+                >
+                  GitHub <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+                <a
+                  href={CV_URL}
+                  download={CV_FILENAME}
+                  className="inline-flex items-center gap-2 rounded-2xl border border-white/20 px-6 py-3 font-medium text-white transition hover:border-brand/60 hover:bg-white/5"
+                >
+                  Download CV <Download className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
       </main>
+
+      <footer className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 pb-10 pt-6 text-sm text-white/50">
+        <p>
+          <span className="mr-3 inline-block h-1.5 w-1.5 rounded-full bg-brand align-middle"></span>
+          Ildo Mota · 2026
+        </p>
+        <a href="#top" className="inline-flex items-center gap-2 transition hover:text-white">
+          Back to top <ArrowUp className="h-4 w-4 text-brand" aria-hidden="true" />
+        </a>
+      </footer>
     </div>
   );
 }

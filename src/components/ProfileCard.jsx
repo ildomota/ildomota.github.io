@@ -1,4 +1,6 @@
 import profile from "../assets/profile.jpg.jfif";
+import BrandUnderline from "./BrandUnderline";
+import OrbitRings from "./OrbitRings";
 
 const skills = [
   "C",
@@ -22,42 +24,7 @@ export default function ProfileCard() {
       <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-brand/20 blur-3xl"></div>
 
       <div className="relative mx-auto aspect-square w-full max-w-92">
-        <svg viewBox="-130 -130 260 260" className="absolute inset-0 h-full w-full" aria-hidden="true">
-          <circle
-            r="124"
-            fill="none"
-            stroke="rgba(255,255,255,0.28)"
-            strokeWidth="2"
-            strokeDasharray="2 12"
-            strokeLinecap="round"
-          />
-          <g
-            className="animate-spin [animation-duration:14s] motion-reduce:animate-none"
-            style={{ transformOrigin: "0px 0px" }}
-          >
-            <circle
-              r="108"
-              fill="none"
-              stroke="var(--color-brand)"
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeDasharray="170 509"
-            />
-          </g>
-          <g
-            className="animate-spin [animation-direction:reverse] [animation-duration:20s] motion-reduce:animate-none"
-            style={{ transformOrigin: "0px 0px" }}
-          >
-            <circle
-              r="108"
-              fill="none"
-              stroke="#5ab6f2"
-              strokeWidth="4"
-              strokeLinecap="round"
-              strokeDasharray="56 623"
-            />
-          </g>
-        </svg>
+        <OrbitRings />
         <img
           src={profile}
           alt="Ildo Mota"
@@ -68,20 +35,7 @@ export default function ProfileCard() {
       <div className="relative mt-6">
         <h3 className="relative inline-block text-3xl font-bold tracking-tight">
           Ildo Mota
-          <svg
-            viewBox="0 0 300 30"
-            preserveAspectRatio="none"
-            className="absolute -bottom-2 left-0 h-2.5 w-full overflow-visible"
-            aria-hidden="true"
-          >
-            <path
-              d="M4 21 C80 5 170 5 296 15"
-              fill="none"
-              stroke="var(--color-brand-soft)"
-              strokeWidth="7"
-              strokeLinecap="round"
-            />
-          </svg>
+          <BrandUnderline />
         </h3>
         <p className="mt-5 leading-7 text-white/80">
           Software Engineering Student

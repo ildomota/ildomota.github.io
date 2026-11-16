@@ -33,6 +33,7 @@ import {
 } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import SectionLabel from "../components/SectionLabel";
+import BrandUnderline from "../components/BrandUnderline";
 import IconTile from "../components/IconTile";
 import { CV_FILENAME, CV_URL, LINKEDIN_URL } from "../lib/links";
 import ApprovalCardMockup from "../components/ApprovalCardMockup";
@@ -271,7 +272,7 @@ export default function PowerPlatform() {
       <SiteHeader>
         <Link
           to="/"
-          className="text-sm font-medium text-white/75 transition hover:text-white"
+          className="nav-link text-sm font-medium text-white/75"
         >
           ← Back to portfolio
         </Link>
@@ -509,18 +510,28 @@ export default function PowerPlatform() {
 
         {/* Skills */}
         <section className="mx-auto max-w-6xl px-6 py-12">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
+          <div className="relative isolate overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10">
+            <div className="pointer-events-none absolute -right-20 -top-28 -z-10 h-72 w-72 rounded-full bg-brand/15 blur-3xl"></div>
             <SectionLabel>Skills demonstrated</SectionLabel>
-            <h3 className="mt-3 text-3xl font-semibold">Tools and strengths</h3>
-            <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <h3 className="mt-3 text-3xl font-semibold">
+              Tools and{" "}
+              <span className="relative inline-block">
+                strengths
+                <BrandUnderline />
+              </span>
+            </h3>
+            <div className="mt-10 grid gap-x-12 gap-y-8 md:grid-cols-2">
               {skillGroups.map((group) => (
                 <div key={group.category}>
-                  <p className="text-sm font-medium text-white/50">{group.category}</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
+                  <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand ring-4 ring-brand/20"></span>
+                    {group.category}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2.5">
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-sm text-white/85"
+                        className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand/60 hover:bg-brand/10 hover:text-white"
                       >
                         {item}
                       </span>
@@ -534,16 +545,24 @@ export default function PowerPlatform() {
 
         {/* Footer CTA */}
         <section className="mx-auto max-w-6xl px-6 py-12 pb-24">
-          <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-center md:p-10">
-            <h3 className="text-2xl font-semibold">Want the full picture?</h3>
-            <p className="mx-auto mt-3 max-w-xl leading-7 text-white/70">
+          <div className="relative isolate overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-center md:p-10">
+            <div className="pointer-events-none absolute -bottom-32 left-1/2 -z-10 h-72 w-[32rem] max-w-full -translate-x-1/2 rounded-full bg-brand/15 blur-3xl"></div>
+            <h3 className="text-2xl font-semibold">
+              Want the{" "}
+              <span className="relative inline-block">
+                full picture
+                <BrandUnderline />
+              </span>
+              ?
+            </h3>
+            <p className="mx-auto mt-5 max-w-xl leading-7 text-white/70">
               This page covers the Power Platform work from my internship. Head back to the
               portfolio for the rest of my projects, or reach out directly.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link
                 to="/"
-                className="rounded-2xl bg-white px-6 py-3 font-medium text-black transition hover:scale-[1.02]"
+                className="rounded-2xl bg-brand px-6 py-3 font-semibold text-slate-950 transition hover:scale-[1.02] hover:bg-brand-soft"
               >
                 ← Back to portfolio
               </Link>
@@ -551,14 +570,14 @@ export default function PowerPlatform() {
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white transition hover:bg-white/5"
+                className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white transition hover:border-brand/60 hover:bg-white/5"
               >
                 LinkedIn
               </a>
               <a
                 href={CV_URL}
                 download={CV_FILENAME}
-                className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white transition hover:bg-white/5"
+                className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white transition hover:border-brand/60 hover:bg-white/5"
               >
                 Download CV
               </a>

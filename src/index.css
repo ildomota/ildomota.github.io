@@ -10,3 +10,35 @@
   --color-brand: #f57c1f;
   --color-brand-soft: #ffb26b;
 }
+
+/* Header links: an orange underline that draws in from the left on hover. */
+.nav-link {
+  position: relative;
+  transition: color 150ms;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 9999px;
+  background: var(--color-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms ease-out;
+}
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #fff;
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-link::after {
+    transition: none;
+  }
+}
