@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Lock } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 import ProfileCard from "../components/ProfileCard";
 import PresentationPlayer from "../components/PresentationPlayer";
-import { CV_FILENAME, CV_URL, GITHUB_URL, LINKEDIN_URL } from "../lib/links";
+import { CV_FILENAME, CV_URL, GITHUB_URL, LINKEDIN_URL, PRESENTATION_URL } from "../lib/links";
 
 import powerPlatformImg from "../assets/projects/PowerPlatform.svg";
 import budgetPlannerImg from "../assets/projects/budgetplanner/thumbnail.jpg";
@@ -233,9 +233,21 @@ export default function Home() {
 
         {/* Presentation */}
         <section id="presentation" className="mx-auto max-w-6xl scroll-mt-28 px-6 py-10">
-          <div className="mb-6">
-            <p className="text-sm uppercase tracking-[0.2em] text-brand">Presentation</p>
-            <h3 className="mt-3 text-3xl font-semibold">Play Interactive Presentation</h3>
+          <div className="mb-6 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-sm uppercase tracking-[0.2em] text-brand">Presentation</p>
+              <h3 className="mt-3 text-3xl font-semibold">Play Interactive Presentation</h3>
+            </div>
+            <a
+              href={PRESENTATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the presentation in a new tab"
+              title="Open in a new tab"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/20 text-white transition hover:border-white/40 hover:bg-white/5"
+            >
+              <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
+            </a>
           </div>
           <PresentationPlayer />
         </section>
