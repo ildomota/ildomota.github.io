@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUp, ArrowUpRight, Download, Lock } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Download, Lock, Menu, X } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
 import ProfileCard from "../components/ProfileCard";
 import BrandUnderline from "../components/BrandUnderline";
 import OrbitRings from "../components/OrbitRings";
@@ -55,7 +57,7 @@ const projects = [
     image: chessTrackImg,
     badge: { label: "Team Project", className: "border-amber-400/40 bg-slate-950/75 text-amber-300" },
     description:
-      "A chess performance assistant pairing Lichess/Chess.com activity with IoT sensors and an ML tilt predictor. I built the frontend as part of a cross-functional SEP4 team.",
+      "A chess performance assistant pairing Lichess/Chess.com activity with IoT sensors and an ML tilt predictor. I built the frontend as part of a cross-functional team.",
     tech: ["React", "Vite", "React Router", "Lichess OAuth"],
     internalPath: "/chesstrack",
   },
@@ -157,23 +159,73 @@ function TeaserCard() {
   );
 }
 
+const navItems = [
+  { id: "about", label: "About" },
+  { id: "presentation", label: "Presentation" },
+  { id: "projects", label: "Projects" },
+  { id: "skills", label: "Skills" },
+  { id: "contact", label: "Contact" },
+];
+
+// Header nav for the home page: inline links on wide screens, a menu button on phones.
+function HomeNav() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <nav className="hidden items-center gap-7 text-sm text-white/75 md:flex">
+        {navItems.slice(0, -1).map(({ id, label }) => (
+          <a key={id} href={`#${id}`} className="nav-link">
+            {label}
+          </a>
+        ))}
+        <a
+          href="#contact"
+          className="rounded-full border border-brand/50 px-4 py-1.5 font-medium text-brand-soft transition hover:border-brand hover:bg-brand hover:text-slate-950"
+        >
+          Contact
+        </a>
+      </nav>
+
+      <button
+        type="button"
+        onClick={() => setOpen((value) => !value)}
+        aria-expanded={open}
+        aria-controls="mobile-nav"
+        aria-label={open ? "Close menu" : "Open menu"}
+        className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 text-white transition hover:border-brand/60 md:hidden"
+      >
+        {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
+      </button>
+
+      {open && (
+        <nav
+          id="mobile-nav"
+          className="absolute inset-x-0 top-full border-b border-white/10 bg-slate-950 px-6 py-3 shadow-2xl shadow-black/50 md:hidden"
+        >
+          {navItems.map(({ id, label }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 border-b border-white/5 py-3.5 text-base text-white/85 last:border-b-0"
+            >
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand ring-4 ring-brand/20"></span>
+              {label}
+            </a>
+          ))}
+        </nav>
+      )}
+    </>
+  );
+}
+
 export default function Home() {
   return (
     <div id="top" className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-950 via-blue-950 to-black text-white">
       <div className="pointer-events-none absolute right-0 top-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[160px]"></div>
       <SiteHeader>
-        <nav className="hidden items-center gap-7 text-sm text-white/75 md:flex">
-          <a href="#about" className="nav-link">About</a>
-          <a href="#presentation" className="nav-link">Presentation</a>
-          <a href="#projects" className="nav-link">Projects</a>
-          <a href="#skills" className="nav-link">Skills</a>
-          <a
-            href="#contact"
-            className="rounded-full border border-brand/50 px-4 py-1.5 font-medium text-brand-soft transition hover:border-brand hover:bg-brand hover:text-slate-950"
-          >
-            Contact
-          </a>
-        </nav>
+        <HomeNav />
       </SiteHeader>
 
       <main>
@@ -188,8 +240,7 @@ export default function Home() {
                 Software Engineering Student
               </h2>
               <p className="max-w-2xl text-lg leading-8 text-white/70">
-                Software engineering student with a business background, currently building
-                enterprise automation on Microsoft Power Platform as an intern at Siemens Energy.
+                With a business background, I'm currently building enterprise automation on Microsoft Power Platform as an intern at Siemens Energy.
                 This portfolio collects the work I'm proudest of, from internship tooling to apps
                 I've built on my own.
               </p>
@@ -403,7 +454,7 @@ export default function Home() {
                       {group.items.map((skill) => (
                         <span
                           key={skill}
-                          className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand/60 hover:bg-brand/10 hover:text-white"
+                          className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand-blue/70 hover:bg-brand-blue/10 hover:text-white"
                         >
                           {skill}
                         </span>
@@ -466,15 +517,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 pb-10 pt-6 text-sm text-white/50">
-        <p>
-          <span className="mr-3 inline-block h-1.5 w-1.5 rounded-full bg-brand align-middle"></span>
-          Ildo Mota · 2026
-        </p>
-        <a href="#top" className="inline-flex items-center gap-2 transition hover:text-white">
-          Back to top <ArrowUp className="h-4 w-4 text-brand" aria-hidden="true" />
-        </a>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

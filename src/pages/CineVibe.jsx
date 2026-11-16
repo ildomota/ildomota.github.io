@@ -16,6 +16,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
 import SectionLabel from "../components/SectionLabel";
 import BrandUnderline from "../components/BrandUnderline";
 import IconTile from "../components/IconTile";
@@ -169,9 +170,9 @@ export default function CineVibe() {
       <SiteHeader>
         <Link
           to="/"
-          className="nav-link text-sm font-medium text-white/75"
+          className="inline-flex min-h-11 items-center text-sm font-medium text-white/75"
         >
-          ← Back to portfolio
+          <span className="nav-link">← Back to portfolio</span>
         </Link>
       </SiteHeader>
 
@@ -179,7 +180,7 @@ export default function CineVibe() {
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
           <p className="inline-block rounded-full border border-white/15 px-4 py-2 text-sm text-white/75">
-            SEP3 Team Project · VIA University College (2024)
+            Semester Project · VIA University College (2024)
           </p>
           <h2 className="mt-6 max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
             CineVibe
@@ -189,7 +190,7 @@ export default function CineVibe() {
             Built end to end as a team
           </p>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/70">
-            CineVibe is a cinema booking system built for SEP3, VIA University College's
+            CineVibe is a cinema booking system built as VIA University College's
             third-semester team project. Customers browse the films on show, choose a showtime and
             seats on a live seat map, add snacks, and spend loyalty points for a discount, while
             admins manage users, reviews and orders. Behind it sit two backend services in two
@@ -307,7 +308,7 @@ export default function CineVibe() {
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand/60 hover:bg-brand/10 hover:text-white"
+                        className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand-blue/70 hover:bg-brand-blue/10 hover:text-white"
                       >
                         {item}
                       </span>
@@ -320,7 +321,7 @@ export default function CineVibe() {
         </section>
 
         {/* Footer CTA */}
-        <section className="mx-auto max-w-6xl px-6 py-12 pb-24">
+        <section className="mx-auto max-w-6xl px-6 py-12">
           <div className="relative isolate overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-center md:p-10">
             <div className="pointer-events-none absolute -bottom-32 left-1/2 -z-10 h-72 w-[32rem] max-w-full -translate-x-1/2 rounded-full bg-brand/15 blur-3xl"></div>
             <h3 className="text-2xl font-semibold">
@@ -332,7 +333,7 @@ export default function CineVibe() {
               ?
             </h3>
             <p className="mx-auto mt-5 max-w-xl leading-7 text-white/70">
-              This page covers CineVibe, a SEP3 team project. Head back to the portfolio for the
+              This page covers CineVibe, a semester team project. Head back to the portfolio for the
               rest of my projects, or reach out directly.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -361,6 +362,8 @@ export default function CineVibe() {
           </div>
         </section>
       </main>
+
+      <SiteFooter />
     </div>
   );
 }

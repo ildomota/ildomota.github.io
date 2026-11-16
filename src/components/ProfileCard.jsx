@@ -9,10 +9,10 @@ const skills = [
   "C#",
   "Docker",
   "JavaScript",
-  "Power Platform",
   "Power Automate",
   "Power Apps",
   "Dataverse",
+  "Power Platform Pipelines",
 ];
 
 const focus = ["Process automation", "Governance and security", "Software development"];

@@ -9,6 +9,8 @@
   /* Accent taken from the presentation deck. */
   --color-brand: #f57c1f;
   --color-brand-soft: #ffb26b;
+  /* Blue from the rotating arc around the profile photo. */
+  --color-brand-blue: #5ab6f2;
 }
 
 /* Header links: an orange underline that draws in from the left on hover. */

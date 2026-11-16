@@ -8,6 +8,9 @@ import {
   Database,
 } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
+import ArchitectureDiagram from "../components/ArchitectureDiagram";
+import { gameCenterArchitecture } from "../lib/projectArchitectures";
+import SiteFooter from "../components/SiteFooter";
 import SectionLabel from "../components/SectionLabel";
 import BrandUnderline from "../components/BrandUnderline";
 import IconTile from "../components/IconTile";
@@ -21,7 +24,6 @@ import mediaGalleryShot from "../assets/projects/gamecenter/media-gallery.jpg";
 const stats = [
   { value: "7,000+", label: "Games in the library" },
   { value: "100", label: "New games fetched daily" },
-  { value: "4", label: "Pages shipped end to end" },
   { value: "3", label: "External APIs integrated" },
 ];
 
@@ -109,9 +111,9 @@ export default function GameCenter() {
       <SiteHeader>
         <Link
           to="/"
-          className="nav-link text-sm font-medium text-white/75"
+          className="inline-flex min-h-11 items-center text-sm font-medium text-white/75"
         >
-          ← Back to portfolio
+          <span className="nav-link">← Back to portfolio</span>
         </Link>
       </SiteHeader>
 
@@ -147,13 +149,13 @@ export default function GameCenter() {
             ))}
           </div>
 
-          <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
+          <div className="mt-12 grid grid-cols-3 gap-3 md:gap-6">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center"
+                className="rounded-2xl border border-white/10 bg-white/5 px-2 py-4 text-center md:p-5"
               >
-                <p className="bg-gradient-to-r from-indigo-300 via-violet-300 to-indigo-400 bg-clip-text text-3xl font-bold text-transparent">
+                <p className="bg-gradient-to-r from-indigo-300 via-violet-300 to-indigo-400 bg-clip-text text-xl font-bold sm:text-2xl md:text-3xl text-transparent">
                   {stat.value}
                 </p>
                 <p className="mt-2 text-xs leading-5 text-white/60">{stat.label}</p>
@@ -161,6 +163,8 @@ export default function GameCenter() {
             ))}
           </div>
         </section>
+
+        <ArchitectureDiagram architecture={gameCenterArchitecture} />
 
         {/* What I built */}
         <section className="mx-auto max-w-6xl px-6 py-12">
@@ -252,7 +256,7 @@ export default function GameCenter() {
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand/60 hover:bg-brand/10 hover:text-white"
+                        className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand-blue/70 hover:bg-brand-blue/10 hover:text-white"
                       >
                         {item}
                       </span>
@@ -265,7 +269,7 @@ export default function GameCenter() {
         </section>
 
         {/* Footer CTA */}
-        <section className="mx-auto max-w-6xl px-6 py-12 pb-24">
+        <section className="mx-auto max-w-6xl px-6 py-12">
           <div className="relative isolate overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-center md:p-10">
             <div className="pointer-events-none absolute -bottom-32 left-1/2 -z-10 h-72 w-[32rem] max-w-full -translate-x-1/2 rounded-full bg-brand/15 blur-3xl"></div>
             <h3 className="text-2xl font-semibold">
@@ -293,7 +297,7 @@ export default function GameCenter() {
                 rel="noopener noreferrer"
                 className="rounded-2xl border border-white/20 px-6 py-3 font-medium text-white transition hover:border-brand/60 hover:bg-white/5"
               >
-                View in GitHub
+                View on GitHub
               </a>
               <a
                 href={LINKEDIN_URL}
@@ -314,6 +318,8 @@ export default function GameCenter() {
           </div>
         </section>
       </main>
+
+      <SiteFooter />
     </div>
   );
 }

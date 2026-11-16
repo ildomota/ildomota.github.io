@@ -10,6 +10,9 @@ import {
   Plug,
 } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
+import ArchitectureDiagram from "../components/ArchitectureDiagram";
+import { chessTrackArchitecture } from "../lib/projectArchitectures";
+import SiteFooter from "../components/SiteFooter";
 import SectionLabel from "../components/SectionLabel";
 import BrandUnderline from "../components/BrandUnderline";
 import IconTile from "../components/IconTile";
@@ -24,7 +27,6 @@ const stats = [
   { value: "8", label: "Features & refactors shipped" },
   { value: "7", label: "Pages & routes in the app" },
   { value: "29", label: "Frontend commits merged" },
-  { value: "1", label: "CRA → Vite migration led" },
 ];
 
 const heroTags = [
@@ -117,9 +119,9 @@ export default function ChessTrack() {
       <SiteHeader>
         <Link
           to="/"
-          className="nav-link text-sm font-medium text-white/75"
+          className="inline-flex min-h-11 items-center text-sm font-medium text-white/75"
         >
-          ← Back to portfolio
+          <span className="nav-link">← Back to portfolio</span>
         </Link>
       </SiteHeader>
 
@@ -127,7 +129,7 @@ export default function ChessTrack() {
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
           <p className="inline-block rounded-full border border-white/15 px-4 py-2 text-sm text-white/75">
-            SEP4 Team Project · VIA University College (2026)
+            Semester Project · VIA University College (2026)
           </p>
           <h2 className="mt-6 max-w-3xl text-4xl font-bold leading-tight md:text-6xl">
             ChessTrack
@@ -137,8 +139,8 @@ export default function ChessTrack() {
             Built, deployed, and demoed with a cross-functional team
           </p>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/70">
-            ChessTrack is a chess performance assistant built for SEP4 (VIA University College's
-            fourth-semester team project) by a cross-functional team spanning frontend, IoT and
+            ChessTrack is a chess performance assistant built as VIA University College's
+            fourth-semester team project by a cross-functional team spanning frontend, IoT and
             machine learning. It connects to a player's Lichess or Chess.com account, pairs that
             activity with live environment sensors, and adds a sleep and hydration check-in before
             a session starts. I was the frontend's primary owner for the player-facing
@@ -157,13 +159,13 @@ export default function ChessTrack() {
             ))}
           </div>
 
-          <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
+          <div className="mt-12 grid grid-cols-3 gap-3 md:gap-6">
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 text-center"
+                className="rounded-2xl border border-white/10 bg-white/5 px-2 py-4 text-center md:p-5"
               >
-                <p className="bg-gradient-to-r from-amber-300 via-orange-300 to-amber-400 bg-clip-text text-3xl font-bold text-transparent">
+                <p className="bg-gradient-to-r from-amber-300 via-orange-300 to-amber-400 bg-clip-text text-xl font-bold sm:text-2xl md:text-3xl text-transparent">
                   {stat.value}
                 </p>
                 <p className="mt-2 text-xs leading-5 text-white/60">{stat.label}</p>
@@ -171,6 +173,8 @@ export default function ChessTrack() {
             ))}
           </div>
         </section>
+
+        <ArchitectureDiagram architecture={chessTrackArchitecture} />
 
         {/* What I built */}
         <section className="mx-auto max-w-6xl px-6 py-12">
@@ -272,7 +276,7 @@ export default function ChessTrack() {
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand/60 hover:bg-brand/10 hover:text-white"
+                        className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand-blue/70 hover:bg-brand-blue/10 hover:text-white"
                       >
                         {item}
                       </span>
@@ -285,7 +289,7 @@ export default function ChessTrack() {
         </section>
 
         {/* Footer CTA */}
-        <section className="mx-auto max-w-6xl px-6 py-12 pb-24">
+        <section className="mx-auto max-w-6xl px-6 py-12">
           <div className="relative isolate overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-center md:p-10">
             <div className="pointer-events-none absolute -bottom-32 left-1/2 -z-10 h-72 w-[32rem] max-w-full -translate-x-1/2 rounded-full bg-brand/15 blur-3xl"></div>
             <h3 className="text-2xl font-semibold">
@@ -297,7 +301,7 @@ export default function ChessTrack() {
               ?
             </h3>
             <p className="mx-auto mt-5 max-w-xl leading-7 text-white/70">
-              This page covers my frontend work on ChessTrack, a SEP4 team project. Head back to
+              This page covers my frontend work on ChessTrack, a semester team project. Head back to
               the portfolio for the rest of my projects, or reach out directly.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -326,6 +330,8 @@ export default function ChessTrack() {
           </div>
         </section>
       </main>
+
+      <SiteFooter />
     </div>
   );
 }

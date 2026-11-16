@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
+  ChevronDown,
   Bot,
   Workflow,
   Network,
@@ -32,6 +34,7 @@ import {
   ShieldAlert,
 } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
 import SectionLabel from "../components/SectionLabel";
 import BrandUnderline from "../components/BrandUnderline";
 import IconTile from "../components/IconTile";
@@ -264,6 +267,9 @@ function DeploymentStep({ step, number, last }) {
 }
 
 export default function PowerPlatform() {
+  const [showAllComponents, setShowAllComponents] = useState(false);
+  const visibleComponents = showAllComponents ? pipelineComponents : pipelineComponents.slice(0, 4);
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-950 via-blue-950 to-black text-white">
       <div className="pointer-events-none absolute right-0 top-40 h-[500px] w-[500px] rounded-full bg-blue-500/20 blur-[160px]"></div>
@@ -272,9 +278,9 @@ export default function PowerPlatform() {
       <SiteHeader>
         <Link
           to="/"
-          className="nav-link text-sm font-medium text-white/75"
+          className="inline-flex min-h-11 items-center text-sm font-medium text-white/75"
         >
-          ← Back to portfolio
+          <span className="nav-link">← Back to portfolio</span>
         </Link>
       </SiteHeader>
 
@@ -384,7 +390,7 @@ export default function PowerPlatform() {
           </p>
 
           <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {pipelineComponents.map((item) => (
+            {visibleComponents.map((item) => (
               <div
                 key={item.title}
                 className="flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:border-white/25 hover:bg-white/[0.07]"
@@ -396,6 +402,21 @@ export default function PowerPlatform() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllComponents((value) => !value)}
+              aria-expanded={showAllComponents}
+              className="inline-flex min-h-11 items-center gap-2 rounded-2xl border border-brand/50 px-5 py-2 text-sm font-medium text-brand-soft transition hover:border-brand hover:bg-brand hover:text-slate-950"
+            >
+              {showAllComponents ? "Show fewer" : `Show all ${pipelineComponents.length} components`}
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${showAllComponents ? "rotate-180" : ""}`}
+                aria-hidden="true"
+              />
+            </button>
           </div>
         </section>
 
@@ -531,7 +552,7 @@ export default function PowerPlatform() {
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand/60 hover:bg-brand/10 hover:text-white"
+                        className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand-blue/70 hover:bg-brand-blue/10 hover:text-white"
                       >
                         {item}
                       </span>
@@ -544,7 +565,7 @@ export default function PowerPlatform() {
         </section>
 
         {/* Footer CTA */}
-        <section className="mx-auto max-w-6xl px-6 py-12 pb-24">
+        <section className="mx-auto max-w-6xl px-6 py-12">
           <div className="relative isolate overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-center md:p-10">
             <div className="pointer-events-none absolute -bottom-32 left-1/2 -z-10 h-72 w-[32rem] max-w-full -translate-x-1/2 rounded-full bg-brand/15 blur-3xl"></div>
             <h3 className="text-2xl font-semibold">
@@ -585,6 +606,8 @@ export default function PowerPlatform() {
           </div>
         </section>
       </main>
+
+      <SiteFooter />
     </div>
   );
 }

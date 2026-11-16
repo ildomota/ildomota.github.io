@@ -10,6 +10,9 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
+import ArchitectureDiagram from "../components/ArchitectureDiagram";
+import { budgetPlannerArchitecture } from "../lib/projectArchitectures";
+import SiteFooter from "../components/SiteFooter";
 import SectionLabel from "../components/SectionLabel";
 import BrandUnderline from "../components/BrandUnderline";
 import IconTile from "../components/IconTile";
@@ -132,9 +135,9 @@ export default function BudgetPlanner() {
       <SiteHeader>
         <Link
           to="/"
-          className="nav-link text-sm font-medium text-white/75"
+          className="inline-flex min-h-11 items-center text-sm font-medium text-white/75"
         >
-          ← Back to portfolio
+          <span className="nav-link">← Back to portfolio</span>
         </Link>
       </SiteHeader>
 
@@ -184,6 +187,8 @@ export default function BudgetPlanner() {
             ))}
           </div>
         </section>
+
+        <ArchitectureDiagram architecture={budgetPlannerArchitecture} />
 
         {/* What I built */}
         <section className="mx-auto max-w-6xl px-6 py-12">
@@ -287,7 +292,7 @@ export default function BudgetPlanner() {
                     {group.items.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand/60 hover:bg-brand/10 hover:text-white"
+                        className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/85 transition hover:border-brand-blue/70 hover:bg-brand-blue/10 hover:text-white"
                       >
                         {item}
                       </span>
@@ -300,7 +305,7 @@ export default function BudgetPlanner() {
         </section>
 
         {/* Footer CTA */}
-        <section className="mx-auto max-w-6xl px-6 py-12 pb-24">
+        <section className="mx-auto max-w-6xl px-6 py-12">
           <div className="relative isolate overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-center md:p-10">
             <div className="pointer-events-none absolute -bottom-32 left-1/2 -z-10 h-72 w-[32rem] max-w-full -translate-x-1/2 rounded-full bg-brand/15 blur-3xl"></div>
             <h3 className="text-2xl font-semibold">
@@ -341,6 +346,8 @@ export default function BudgetPlanner() {
           </div>
         </section>
       </main>
+
+      <SiteFooter />
     </div>
   );
 }
