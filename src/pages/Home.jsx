@@ -383,9 +383,9 @@ export default function Home() {
                 <div className="mt-auto pt-6">
                   <Link
                     to={project.internalPath}
-                    className="inline-block rounded-2xl border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/5"
+                    className="inline-flex items-center gap-2 rounded-2xl border border-brand/50 px-4 py-2 text-sm font-medium text-brand-soft transition hover:border-brand hover:bg-brand hover:text-slate-950"
                   >
-                    {project.linkLabel || "View Project"}
+                    {project.linkLabel || "View Project"} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 </div>
               </article>
